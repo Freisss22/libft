@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cafreire <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 18:42:45 by cafreire          #+#    #+#             */
-/*   Updated: 2023/10/17 18:42:48 by cafreire         ###   ########.fr       */
+/*   Created: 2023/10/17 19:00:45 by cafreire          #+#    #+#             */
+/*   Updated: 2023/10/17 19:07:26 by cafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
-#include <ctype.h>
 
-int     ft_isdigit(int c)
+char 	*ft_strstr(char *str, char *to_find)
 {
-        if (c < 48 || c > 57)
-        {
-                return (0);
-        }
-        return (1);
-}
+	int	i;
+	int	j;
 
-int     main(void)
-{
-	int	aux;
-	int	prueba;
-	int	str;
-	int	pbr;
-
-	pbr = 'a';
-	str = 'a';
-	aux = ft_isdigit(str);
-	printf("%d\n",aux);
-	prueba = isdigit(pbr);
-	printf("%d\n",prueba);
+	i = 0;
+	j = 0;
+	if  (to_find[0] == '\0')
+		return (str);
+	while (str[i] != '\0')
+	{
+		while (str[i + j] == to_find[j] && str[i + j] != '\0')
+		{
+			j++;
+			if (to_find[j] == '\0')
+				return (str + i);
+		}
+		i++;
+		j = 0;
+	}
 	return (0);
 }
