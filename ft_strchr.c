@@ -6,7 +6,7 @@
 /*   By: cafreire <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:43:31 by cafreire          #+#    #+#             */
-/*   Updated: 2023/10/17 18:43:33 by cafreire         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:43:13 by cafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	while (str != NULL)
+	while (*str != '\0')
 	{
-		if (&str == c)
+		if (*str == c)
 		{
-			return (str);
+			return ((char *)str);
 		}
-		str ++;
+		str++;
 	}
 	return (NULL);
 }
@@ -34,10 +34,6 @@ int	main(void)
 
 	str = "supercalifragilistico";
 	p = ft_strchr(str, 'f');
-	while (p != NULL)
-	{
-		write(1, &p, 1);
-		p ++;
-	}
+	printf("%s\n", p);
 	return (0);
 }

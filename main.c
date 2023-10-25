@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cafreire <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 19:00:45 by cafreire          #+#    #+#             */
-/*   Updated: 2023/10/25 17:03:54 by cafreire         ###   ########.fr       */
+/*   Created: 2023/10/25 19:14:06 by cafreire          #+#    #+#             */
+/*   Updated: 2023/10/25 19:15:00 by cafreire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 
-char 	*ft_strnstr(char *str, char *to_find)
+
+int     main(void)
 {
-	int	i;
-	int	j;
+        int     i;
 
-	i = 0;
-	j = 0;
-	if  (to_find[0] == '\0')
-		return (str);
-	while (str[i] != '\0')
-	{
-		while (str[i + j] == to_find[j] && str[i + j] != '\0')
-		{
-			j++;
-			if (to_find[j] == '\0')
-				return (str + i);
-		}
-		i++;
-		j = 0;
-	}
-	return (0);
+        i = 0;
+        char    cadena[] = "2caDEna2 dE 3PruebA3";
+        while (cadena[i] != '\0')
+        {
+                cadena[i] = ft_tolower(cadena[i]);
+                i ++;
+        }
+        printf("%s\n", cadena);
+        return (0);
 }
